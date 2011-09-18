@@ -18,6 +18,10 @@
 
 " General {
 	set background=dark         " Assume a dark background
+    "???
+    filetype plugin indent on   "Auto detect file types ?does this require me to download something
+    "???
+    "Answer: it will know what type of file you are editing so then it will help with formating!
 	syntax on 					" syntax highlighting
 	set mouse=a					" automatically enable mouse usage
 	scriptencoding utf-8
@@ -48,6 +52,22 @@
 	hi cursorline guibg=#333333 	" highlight bg color of current line
 	hi CursorColumn guibg=#333333   " highlight cursor
 
+""The following ruler and status line have no discernible effect on my vim configuration
+    set ruler                   " show the ruler
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) "a ruler on steriods
+    set showcmd
+    
+    set laststatus=2
+    set statusline=%<%f\    " Filename
+    set statusline+=%w%h%m%r " Options
+    set statusline+=%{fugitive#statusline()} "  Git Hotness <-- Fugitive has
+    set statusline+=\ [%{&ff}/%Y]            " filetype
+    set statusline+=\ [%{getcwd()}]          " current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+""The above ruler and status line have no discernible effect
+
+    set backspace=indent,eol,start
+    set linespace=0                 " backspace for dummies
 	set nu							" Line numbers on
 	set showmatch					" show matching brackets/parenthesis
 	set incsearch					" find as you type search
@@ -127,4 +147,7 @@
 
 " Plugins {
 " TODO: introduce slowly...haha
+" Pathogen
+    call pathogen#infect()
+    call pathogen#helptags()
 " }
