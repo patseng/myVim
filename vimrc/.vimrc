@@ -20,6 +20,7 @@
 	set background=dark         " Assume a dark background
     "???
     filetype plugin indent on   "Auto detect file types ?does this require me to download something
+    filetype plugin on
     "???
     "Answer: it will know what type of file you are editing so then it will help with formating!
 	syntax on 					" syntax highlighting
